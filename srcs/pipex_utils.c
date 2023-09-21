@@ -6,7 +6,7 @@
 /*   By: garance <garance@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 08:53:13 by garance           #+#    #+#             */
-/*   Updated: 2023/09/21 09:56:19 by garance          ###   ########.fr       */
+/*   Updated: 2023/09/21 11:23:58 by garance          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,18 @@ static int	ft_find_good_path(char **path, char **good_path, char *cmd,
 
 int	ft_access_cmd(char **path, char *cmd, char **good_path)
 {
-	int	accss;
+	int		accss;
+	char	*tmp;
 
 	accss = access(cmd, F_OK | X_OK);
 	if (accss == 0)
 	{
+		tmp = ft_strjoin(cmd, "/");
+		if (!tmp)
+			return (E_STRJOIN);
+		accss = access(tmp, F_OK | X_OK);
+		if (accss == 0)
+			return (free(tmp), E_NO_CMD);
 		*good_path = ft_strdup(cmd);
 		if (!*good_path)
 			return (E_STRDUP);
