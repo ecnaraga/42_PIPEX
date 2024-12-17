@@ -13,7 +13,8 @@
 #ifndef PIPEX_BONUS_H
 # define PIPEX_BONUS_H
 
-# include "../libft/includes/libft.h"
+# include "../libft/ft_printf/include/ft_printf.h"
+# include "../libft/get_next_line/includes/get_next_line.h"
 # include <errno.h>
 # include <stdio.h>
 # include <sys/wait.h>
