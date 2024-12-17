@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex_bonus.h"
+#include "../../include/pipex_bonus.h"
 
 void	create_here_doc(t_pipex *p)
 {

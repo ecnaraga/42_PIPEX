@@ -1,34 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_bonus.c                                      :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: garance <garance@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 18:47:17 by galambey          #+#    #+#             */
-/*   Updated: 2023/09/21 11:23:41 by garance          ###   ########.fr       */
+/*   Updated: 2023/09/21 11:14:29 by garance          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex_bonus.h"
+#include "../../include/pipex.h"
 
-void	ft_free_fd_p(int **fd_p, int j)
-{
-	if (j != -1)
-	{
-		while (--j >= 0)
-			free(fd_p[j]);
-		free(fd_p);
-	}
-	else
-	{
-		while (fd_p[++j])
-			free(fd_p[j]);
-		free(fd_p);
-	}
-}
-
-void	ft_exit(t_pipex *p, int fd_1, int fd_2, int j)
+void	ft_exit(t_pipex *p, int fd_1, int fd_2)
 {
 	if (fd_1 > -1)
 		close(fd_1);
@@ -40,10 +24,6 @@ void	ft_exit(t_pipex *p, int fd_1, int fd_2, int j)
 		ft_free_split(p->path);
 	if (p->cmd_opt)
 		ft_free_split(p->cmd_opt);
-	if (p->fd_p)
-		ft_free_fd_p(p->fd_p, j);
-	if (p->name_here_doc)
-		free(p->name_here_doc);
 	exit(EXIT_FAILURE);
 }
 
@@ -111,7 +91,7 @@ void	ft_perr(int err, char *cmd)
 		ck = ft_message_directory(cmd);
 		if (ck == 1)
 			return ;
-		if (ck_char(cmd, '/') > 0)
+		else if (ck_char(cmd, '/') > 0)
 		{
 			str = ft_strjoin("bash: ", cmd);
 			perror(str);

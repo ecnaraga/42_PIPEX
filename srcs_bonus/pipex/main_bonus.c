@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex_bonus.h"
+#include "../../include/pipex_bonus.h"
 
 static void	ft_init_struct(t_pipex *p)
 {

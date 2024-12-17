@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex_bonus.h"
+#include "../../include/pipex_bonus.h"
 
 static void	ft_child_exec(t_pipex p, char **av, int i)
 {

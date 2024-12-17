@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex_bonus.h"
+#include "../../include/pipex_bonus.h"
 
 static int	ft_recover_prompt(int fd_temp, char *lim, t_pipex *p)
 {

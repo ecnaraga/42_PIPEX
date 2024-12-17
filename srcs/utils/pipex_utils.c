@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "../../include/pipex.h"
 
 char	**ft_research_path(char **env)
 {
